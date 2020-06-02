@@ -1,0 +1,16 @@
+Dependencies :
+Sping web
+Thymleaf
+
+create a spring intializer
+check all the dependencies in POM.xml
+then create an MVC structure
+-Make a package named controller
+-mkae a class name CotrollerClass
+-use annotation name '@Controller'
+ thymeaf viewResolver application
+Create Thymeleaf teamplate page
+
+-pass the annoation in that html
+
+-run the spring boot
