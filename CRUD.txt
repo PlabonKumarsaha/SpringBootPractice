@@ -1,0 +1,21 @@
+Create an entity,controller,repository(keep the spring data jpas) package
+
+
+*Entity pack
+-create a Student class
+-give entity annotation
+-give table annotaion that helps to create a student DB
+- create data fields and take getter setters and constructors fro this class
+-give id field @ID and GeneratedValue to  give increment statagy
+-give @Column annoation for other data fields
+
+*create interface named  StudentRepository in the repository package
+-extend it to JPA Repository and connect them with student and Long(for id)
+-add Repository annotation for this
+
+*Create a class as StudentColtroller
+-use controller annotation and request mapping
+-make form of add studentsusing get mapping annotaion
+-show the list of students using  where the students function will return the index page
+-make add student function and use student obj and bind result(validates the form) as parameter
+.as we are stoding value using this method thus we use post method annotation
