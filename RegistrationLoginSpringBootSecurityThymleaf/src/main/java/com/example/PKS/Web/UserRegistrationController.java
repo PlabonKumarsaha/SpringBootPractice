@@ -16,6 +16,8 @@ public class UserRegistrationController {
 
 	
 	private UserService userService;
+	
+	
 
 	public UserRegistrationController(UserService userService) {
 		super();
@@ -23,8 +25,16 @@ public class UserRegistrationController {
 	}
 	
 	
+	  @ModelAttribute("user")
+	    public UserRegistrationDTO userRegistrationDto() {
+	        return new UserRegistrationDTO();
+	    }
+	
 	 @GetMapping
 	    public String showRegistrationForm(Model model) {
+		 
+		 
+		// model.addAttribute("user",new UserRegistrationDTO());
 	        return "registration";
 	    }
 	 

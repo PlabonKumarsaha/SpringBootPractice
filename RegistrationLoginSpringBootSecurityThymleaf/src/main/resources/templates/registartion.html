@@ -49,20 +49,23 @@
 
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('firstName')}? 'has-error':''">
-						<label for="firstName" class="control-label">First name</label> <input
+						<label for="firstName" class="control-label">First name</label>
+						 <input
 							id="firstName" class="form-control" th:field="*{firstName}" />
 						<p class="error-message"
 							th:each="error: ${#fields.errors('firstName')}"
 							th:text="${error}">Validation error</p>
 					</div>
+					
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('lastName')}? 'has-error':''">
-						<label for="lastName" class="control-label">Last name</label> <input
-							id="lastName" class="form-control" th:field="*{lastName}" />
+						<label for="LastName" class="control-label">Last name</label> <input
+							id="LastName" class="form-control" th:field="*{LastName}" />
 						<p class="error-message"
-							th:each="error : ${#fields.errors('lastName')}"
+							th:each="error : ${#fields.errors('LastName')}"
 							th:text="${error}">Validation error</p>
 					</div>
+					
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
 						<label for="email" class="control-label">E-mail</label> <input
@@ -71,6 +74,7 @@
 							th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation
 							error</p>
 					</div>
+					
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('confirmEmail')}? 'has-error':''">
 						<label for="confirmEmail" class="control-label">Confirm
@@ -80,6 +84,7 @@
 							th:each="error : ${#fields.errors('confirmEmail')}"
 							th:text="${error}">Validation error</p>
 					</div>
+					
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
 						<label for="password" class="control-label">Password</label> <input
@@ -89,6 +94,7 @@
 							th:each="error : ${#fields.errors('password')}"
 							th:text="${error}">Validation error</p>
 					</div>
+					
 					<div class="form-group"
 						th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error':''">
 						<label for="confirmPassword" class="control-label">Confirm

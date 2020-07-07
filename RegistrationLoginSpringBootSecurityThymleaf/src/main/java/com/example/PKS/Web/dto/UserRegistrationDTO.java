@@ -10,6 +10,11 @@ public class UserRegistrationDTO {
 	private String LastName;
 	private String email;
 	private String password;
+	
+	public UserRegistrationDTO() {
+		
+	}
+	
 	public UserRegistrationDTO(Long id, String firstName, String lastName, String email, String password) {
 		super();
 		this.id = id;
