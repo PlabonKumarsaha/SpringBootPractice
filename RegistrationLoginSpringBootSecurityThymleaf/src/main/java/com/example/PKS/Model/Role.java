@@ -19,6 +19,9 @@ public class Role {
 	//unspecified entity colum name will have the same name as field
 	private String name;
 	
+	public Role() {
+		
+	}
 	
 	public Role(String name) {
 		super();

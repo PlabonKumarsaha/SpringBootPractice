@@ -38,6 +38,11 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
+	
+	public User() {
+		
+	}
+	
 	//we used eager bcz with our user we need to retrive the roles
 	@ManyToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
 	@JoinTable(
