@@ -23,7 +23,7 @@ public class StudentController {
 	private StudentRepository studentRepository;
 
 	@GetMapping("showForm")
-	public String showStudentForm(Student student) {
+	public String showStudentForm(@Validated Student student) {
 		return "add-student";
 	}
 
@@ -34,7 +34,7 @@ public class StudentController {
 	}
 
 	@PostMapping("add")
-	public String addStudent( Student student, BindingResult result, Model model) {
+	public String addStudent(@Validated Student student, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			return "add-student";
 		}
@@ -54,7 +54,7 @@ public class StudentController {
 	}
 
 	@PostMapping("update/{id}")
-	public String updateStudent(@PathVariable("id") long id,  Student student, BindingResult result, Model model) {
+	public String updateStudent(@PathVariable("id") long id, @Validated Student student, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			student.setId(id);
 			return "update-student";
