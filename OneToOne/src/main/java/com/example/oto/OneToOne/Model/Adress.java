@@ -1,6 +1,5 @@
 package com.example.oto.OneToOne.Model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Adress {
+//works as an id
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
