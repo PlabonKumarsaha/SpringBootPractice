@@ -11,7 +11,7 @@ Create an entity,controller,repository(keep the spring data jpas) package
 
 *create interface named  StudentRepository in the repository package
 -extend it to JPA Repository and connect them with student and Long(for id)
--add Repository annotation for this
+-add Repository annotation for this.
 
 *Create a class as StudentColtroller
 -use controller annotation and request mapping
