@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+  property name will be added as the perperty that is being set the the setter injection
+  HappyFortuneServie happuyfortuneServie = new HappyFortuneSerice();
+
+  CricketCoach cricketcoach = new CricketCoach();
+  cricketcoach.setFortuneSercice(happuyfortuneServie);
+
+
+    -->
+
+    <!-- Define dependency helper -->
+    <!-- Creating the dependency -->
+
+    <!-- reffered bean -->
+    <bean id="myFortuneService"
+    class="com.example.Setter_dependency_injection.HappyFortuneService" />
+
+
+    <!-- myCoach is the id to get the spring object -->
+    <bean id="myCoach"
+    class="com.example.Setter_dependency_injection.CricketCoach">
+        <!-- creating a const argument for the constructor-->
+        <!-- Injecting the dependency-->
+        <property name="fortuneService" ref="myFortuneService"/> <!--  bean reffered  -->
+    </bean>
+</beans>
