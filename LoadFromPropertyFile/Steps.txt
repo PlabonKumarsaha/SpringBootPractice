@@ -1,0 +1,18 @@
+1. step1
+set email and team in a text file
+foo.email =abc@gmail.com
+foo.team =CSK
+
+2. step2 : load the file in applicationContext.xml
+<context:prperty-placholder Location="classpath:sport.proeprties"/>
+
+3. step3 :
+
+  <bean id="myCoach"
+    class="com.example.Setter_dependency_injection.CricketCoach">
+        <!-- creating a const argument for the constructor-->
+        <!-- Injecting the dependency-->
+        <property name="emailAddress" value="${foo.email}"/> //values in file and here must be same
+        <property name="team" value="${foo.team}"/>
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
