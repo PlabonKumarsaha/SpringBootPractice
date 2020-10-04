@@ -4,12 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-@SpringBootApplication
 public class ConstDependencyInjectionApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConstDependencyInjectionApplication.class, args);
+     //   SpringApplication.run(ConstDependencyInjectionApplication.class, args);
         
        /* DI is a technique for passing dependencies into an object’s constructor.
        If the object has been loaded from the container, then its dependencies will be automatically supplied by the container.
@@ -35,15 +35,18 @@ public class ConstDependencyInjectionApplication {
          */
 
 
-        ApplicationContext context =
-                new ClassPathXmlApplicationContext("src/applicationContext.xml");
+        /*ApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+*/
+        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
 
         //step 3 : reatriving bean from the config..Here mycoach is the same as set up in the beans..and Coach
         //is the interface of the implementation where the actual class is saved in the config file
-        Coach theCoach = context.getBean("myCoach",Coach.class);
+        Coach theCoach = (Coach) context.getBean("myCoach");
+        System.out.println(theCoach.getDailyWorkout());
 
         //call method on the bean
-        System.out.println(theCoach.getDailyWorkout());
+      /*  System.out.println(theCoach.getDailyWorkout());
         System.out.println(theCoach.getDailyFortuneService());
 
 
@@ -53,7 +56,7 @@ public class ConstDependencyInjectionApplication {
         HappyFortuneService myFortuneService = new HappyFortuneService();
         Coach myCoach = new BaseballCoach(myFortuneService);
 
-        System.out.println();
+        System.out.println();*/
 
 
 
