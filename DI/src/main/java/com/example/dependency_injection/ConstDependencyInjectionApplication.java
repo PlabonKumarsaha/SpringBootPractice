@@ -6,6 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import javax.naming.Context;
+
 public class ConstDependencyInjectionApplication {
 
     public static void main(String[] args) {
@@ -38,12 +40,12 @@ public class ConstDependencyInjectionApplication {
         /*ApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 */
-        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
+        //FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
 
         //step 3 : reatriving bean from the config..Here mycoach is the same as set up in the beans..and Coach
         //is the interface of the implementation where the actual class is saved in the config file
-        Coach theCoach = (Coach) context.getBean("myCoach");
-        System.out.println(theCoach.getDailyWorkout());
+      // Coach theCoach = (Coach) context.getBean("myCoach");
+       // System.out.println(theCoach.getDailyWorkout());
 
         //call method on the bean
       /*  System.out.println(theCoach.getDailyWorkout());
@@ -57,6 +59,21 @@ public class ConstDependencyInjectionApplication {
         Coach myCoach = new BaseballCoach(myFortuneService);
 
         System.out.println();*/
+
+        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
+
+        DietCoach myHealthyDietCoach = new HealthyDiet();
+
+        Coach coach = (Coach) context.getBean("myCoach");
+
+        CricketCoach  cricketCoach = new CricketCoach(myHealthyDietCoach);
+        System.out.println(cricketCoach.getDiet());
+
+       /* System.out.println(coach.getDailyWorkout());
+
+        Coach coach2 = (Coach) context.getBean("myCoach2");
+
+        System.out.println(coach2.getDailyWorkout());*/
 
 
 

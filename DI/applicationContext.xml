@@ -12,15 +12,42 @@
     <!-- Define dependency helper -->
     <!-- Creating the dependency -->
 
-    <bean id="myFortuneService"
+  <!--  <bean id="myFortuneService"
     class="com.example.dependency_injection.HappyFortuneService">
     </bean>
-
-    <!-- myCoach is the id to get the spring object -->
+    &lt;!&ndash; myCoach is the id to get the spring object &ndash;&gt;
     <bean id="myCoach"
     class="com.example.dependency_injection.BaseballCoach">
-        <!-- creating a const argument for the constructor-->
-        <!-- Injecting the dependency-->
+        &lt;!&ndash; creating a const argument for the constructor&ndash;&gt;
+        &lt;!&ndash; Injecting the dependency&ndash;&gt;
         <constructor-arg ref="myFortuneService"/>
     </bean>
+-->
+
+
+  <!--  <bean id="myCoach"
+    class="com.example.dependency_injection.BaseballCoach">
+    </bean>
+
+    <bean id="myCoach2"
+          class="com.example.dependency_injection.CricketCoach">
+        <constructor-arg ref="myCoach"/>
+    </bean>
+-->
+
+   <!-- <bean id="myFortuneService"
+          class="com.example.dependency_injection.HappyFortuneService">
+    </bean>
+
+    <bean id="myCoach" class="com.example.dependency_injection.BaseballCoach">
+        <constructor-arg ref="myFortuneService"/>
+    </bean>-->
+
+    <bean id="myHealthyDietCoach" class="com.example.dependency_injection.HealthyDiet">
+    </bean>
+
+    <bean id="myCoach" class="com.example.dependency_injection.CricketCoach">
+        <constructor-arg ref="myHealthyDietCoach"></constructor-arg>
+    </bean>
+
 </beans>
