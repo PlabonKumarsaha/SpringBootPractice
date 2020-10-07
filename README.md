@@ -5,4 +5,6 @@
 *Intelij
 
 ## Topics
+* Inversion of Control
 * Dependency Injection
+
