@@ -17,4 +17,6 @@
 * Spring config with annotation(Field injection) :
 @Autowired
     (private/public)FortuneSerice fortuneSerice; // works with java reflection technologies
+    
+* Spring config with annotation (FieldCOnfig + Qualifier) -https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/SpringConfigWithAnnotation_Field_Ijection_qualifer
 
