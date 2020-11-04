@@ -8,5 +8,5 @@
 * Inversion of Control
 * Dependency Injection
 
-* use component - 
+* use component for IOC- https://github.com/PlabonKumarsaha/SpringBootPractice-/blob/master/springComponentWIthAnnotation.txt
 
