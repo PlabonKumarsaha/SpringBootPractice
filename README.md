@@ -8,3 +8,5 @@
 * Inversion of Control
 * Dependency Injection
 
+* use component - 
+
