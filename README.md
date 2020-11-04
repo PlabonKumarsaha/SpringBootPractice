@@ -14,3 +14,7 @@
 
 * Spring configuration with annotation(Setter injection) : https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/SpringConfigWithAnnotation_Setter_Injection
 
+* Spring config with annotation(Field injection) :
+@Autowired
+    FortuneSerice fortuneSerice; // works with java reflection technologies
+
