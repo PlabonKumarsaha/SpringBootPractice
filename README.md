@@ -16,5 +16,5 @@
 
 * Spring config with annotation(Field injection) :
 @Autowired
-    FortuneSerice fortuneSerice; // works with java reflection technologies
+    (private/public)FortuneSerice fortuneSerice; // works with java reflection technologies
 
