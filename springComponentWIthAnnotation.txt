@@ -1,0 +1,10 @@
+1. Take the 
+<context:component-scan base-package="com.example.dependency_injection"/>
+//base-package is the package name of the project
+in the configuration file.
+
+2.add a @Component annotation on top of the class
+
+3.FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
+        Coach theCoach =context.getBean("baseballClass",Coach.class);
+
