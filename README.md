@@ -10,5 +10,7 @@
 
 * use component for IOC- https://github.com/PlabonKumarsaha/SpringBootPractice-/blob/master/springComponentWIthAnnotation.txt
 
-* Spring configuration with annotation(constructor injection)  https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/SpringConfigWithAnnotation
+* Spring configuration with annotation(constructor injection):  https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/SpringConfigWithAnnotation
+
+* Spring configuration with annotation(Setter injection) : https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/SpringConfigWithAnnotation_Setter_Injection
 
