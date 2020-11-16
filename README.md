@@ -2,7 +2,7 @@
 
 ## Used tools
 * STS
-*Intelij
+* Intelij
 
 ## Topics
 * Inversion of Control
@@ -21,4 +21,6 @@
 * Spring config with annotation (FieldCOnfig + Qualifier) -https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/SpringConfigWithAnnotation_Field_Ijection_qualifer
 
 * Spirng qualifier - Used when multiple classes implmenet the same abstract class. https://www.tutorialspoint.com/spring/spring_qualifier_annotation.htm
+
+* Controller - https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/Controller_SPRINGMVC : How to add JSP and add action in JSP
 
