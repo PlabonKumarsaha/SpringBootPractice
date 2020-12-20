@@ -34,7 +34,7 @@ public class ToDoServiceImpl implements ToDoService {
     @Override
     public Response create(ToDoDto toDoDto) {
         ToDo toDo = modelMapper.map(toDoDto, ToDo.class);
-        toDo.setActive(true);
+        toDo.setActive(true); // base class
         toDo = toDoRepository.save(toDo);
         if (toDo != null) {
             return ResponseBuilder.getSuccessResponse(HttpStatus.CREATED, null, String.format("Created successfully", root));
