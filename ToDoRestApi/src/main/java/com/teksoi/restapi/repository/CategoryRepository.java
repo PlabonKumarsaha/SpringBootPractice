@@ -14,8 +14,8 @@ import com.teksoi.restapi.model.ToDo;
 public interface CategoryRepository extends JpaRepository<CategoryModel, Long>{
 	
 	@Modifying
-	@Query("update CategoryModel t set t.active = ?")
-	 int deleteAll(Boolean active);
+	@Query("update CategoryModel t set t.active = ?1")
+	 int deleteAll(Boolean active); //
 	
 	List<CategoryModel> findAllByActiveTrue();
 	

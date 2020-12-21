@@ -18,5 +18,15 @@ public final class URIConstants {
 		public static final String DELETE = "/delete";
 		
 	}
+	
+	public static class ProductURL{
+		public static final String ROOT = API+VERSION;
+		public static final String GETALL = "/products";
+		public static final String CREATE = "/add_product";
+		public static final String UPDATE = "/update_product/{id}";
+		public static final String DELETEBYID = "/delete_product/{id}";
+		public static final String DELETE = "/delete_product";
+		
+	}
 
 }

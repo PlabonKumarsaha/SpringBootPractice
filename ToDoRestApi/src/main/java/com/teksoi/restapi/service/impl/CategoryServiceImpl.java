@@ -46,46 +46,21 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public Response getAll() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generateHtd method stub
 		List<CategoryModel>allCatagoryList = categoryRepository.findAllByActiveTrue();
-		List<CategoryModel>responseDto = new ArrayList<>();
+		List<CategoryDto>responseDto = new ArrayList<>();
 		allCatagoryList.forEach(catagory->{
 			//ToDoDto toDoDto = modelMapper.map(course, ToDoDto.class); // why here dto is used
             //responseDtos.add(toDoDto);
             CategoryDto catagoryDto = modelMapper.map(catagory,CategoryDto.class);
-            responseDto.add(catagory);		
+            responseDto.add(catagoryDto);		
 		});
 		
         return ResponseBuilder.getSuccessResponse(HttpStatus.OK, responseDto, responseDto.size(), String.format("%s list", rootForCategory));
 
 	}
 	
-//    @Override
-//    public Response update(Long id, ToDoDto toDoDto) {
-//        Optional<ToDo> optionalToDo = toDoRepository.findById(id);
-//        if (!optionalToDo.isPresent()) {
-//            return ResponseBuilder.getFailResponse(HttpStatus.NOT_FOUND, String.format("Requested %s could not be found", root));
-//        }
-//
-//        try {
-//            ToDo toDo = optionalToDo.get();
-//            modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
-//            modelMapper.map(toDoDto, toDo);
-//            toDo = toDoRepository.save(toDo);
-//
-//            if (toDo != null) {
-//                return ResponseBuilder.getSuccessResponse(HttpStatus.OK, null, String.format("%s updated successfully", root));
-//            }
-//            return ResponseBuilder.getFailResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Internal error occurred");
-//
-//        } catch (NullPointerException e) {
-//            return ResponseBuilder.getFailResponse(HttpStatus.BAD_REQUEST, e.getMessage());
-//        } catch (Exception e) {
-//            return ResponseBuilder.getFailResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
-//        }
-//    }
 
-	
 
 	@Override
 	public Response update( Long id,CategoryDto categoryDto) {
