@@ -60,7 +60,7 @@ public class ProductController {
 		 return response;
 	}
 	
-	 @DeleteMapping(Category.DELETEBYID)
+	 @DeleteMapping(ProductURL.DELETEBYID)
 	 @ResponseBody
 	 public Response delete(@PathVariable("id") Long id, HttpServletResponse httpServletResponse, HttpServletRequest request) {
 		 

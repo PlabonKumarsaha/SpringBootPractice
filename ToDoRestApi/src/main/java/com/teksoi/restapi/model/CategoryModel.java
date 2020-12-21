@@ -15,5 +15,5 @@ public class CategoryModel extends BaseModel {
 	private String categoryType;
 	// @ManyToOne(fetch = FetchType.LAZY, optional = false)
 	 //@JoinColumn(name = "category_id", nullable = false)
-	private Product product;
+	//private Product product;
 }
