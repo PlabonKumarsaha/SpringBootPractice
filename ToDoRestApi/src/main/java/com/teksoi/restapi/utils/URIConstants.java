@@ -1,19 +1,21 @@
 package com.teksoi.restapi.utils;
 
-public class URIConstants {
+public final class URIConstants {
 	
-	private static final String API = "/api";
+	public URIConstants() {
+		
+	}
+	
+	public static final String API = "/api";
 	private static final String VERSION = "/v1";
 	
-	public static class category{
+	public static class Category{
 		public static final String ROOT = API+VERSION;
-		public static final String GETALL = ROOT + "/catagories";
-		public static final String CREATE = ROOT + "/add";
-		public static final String UPDATE = ROOT + "/update/{id}";
-		public static final String DELETE = ROOT + "/delete/{id}";
-		
-		
-		
+		public static final String GETALL = "/catagories";
+		public static final String CREATE = "/add";
+		public static final String UPDATE = "/update/{id}";
+		public static final String DELETEBYID = "/delete/{id}";
+		public static final String DELETE = "/delete";
 		
 	}
 

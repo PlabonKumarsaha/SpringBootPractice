@@ -1,5 +1,10 @@
 package com.teksoi.restapi.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,7 +12,10 @@ import org.springframework.stereotype.Service;
 
 import com.teksoi.restapi.dto.CategoryDto;
 import com.teksoi.restapi.dto.Response;
+import com.teksoi.restapi.dto.ToDoDto;
+import com.teksoi.restapi.exception.ResourceNotFoundException;
 import com.teksoi.restapi.model.CategoryModel;
+import com.teksoi.restapi.model.ToDo;
 import com.teksoi.restapi.repository.CategoryRepository;
 import com.teksoi.restapi.service.CategoryService;
 import com.teksoi.restapi.utils.ResponseBuilder;
@@ -39,26 +47,106 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public Response getAll() {
 		// TODO Auto-generated method stub
-		//List<CategoryModel>allCatagoryList = categoryRepository.get
-		return null;
+		List<CategoryModel>allCatagoryList = categoryRepository.findAllByActiveTrue();
+		List<CategoryModel>responseDto = new ArrayList<>();
+		allCatagoryList.forEach(catagory->{
+			//ToDoDto toDoDto = modelMapper.map(course, ToDoDto.class); // why here dto is used
+            //responseDtos.add(toDoDto);
+            CategoryDto catagoryDto = modelMapper.map(catagory,CategoryDto.class);
+            responseDto.add(catagory);		
+		});
+		
+        return ResponseBuilder.getSuccessResponse(HttpStatus.OK, responseDto, responseDto.size(), String.format("%s list", rootForCategory));
+
 	}
+	
+//    @Override
+//    public Response update(Long id, ToDoDto toDoDto) {
+//        Optional<ToDo> optionalToDo = toDoRepository.findById(id);
+//        if (!optionalToDo.isPresent()) {
+//            return ResponseBuilder.getFailResponse(HttpStatus.NOT_FOUND, String.format("Requested %s could not be found", root));
+//        }
+//
+//        try {
+//            ToDo toDo = optionalToDo.get();
+//            modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
+//            modelMapper.map(toDoDto, toDo);
+//            toDo = toDoRepository.save(toDo);
+//
+//            if (toDo != null) {
+//                return ResponseBuilder.getSuccessResponse(HttpStatus.OK, null, String.format("%s updated successfully", root));
+//            }
+//            return ResponseBuilder.getFailResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Internal error occurred");
+//
+//        } catch (NullPointerException e) {
+//            return ResponseBuilder.getFailResponse(HttpStatus.BAD_REQUEST, e.getMessage());
+//        } catch (Exception e) {
+//            return ResponseBuilder.getFailResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+//        }
+//    }
+
+	
 
 	@Override
-	public Response update(CategoryDto categoryDto, Long id) {
+	public Response update( Long id,CategoryDto categoryDto) {
 		// TODO Auto-generated method stub
-		return null;
+		Optional<CategoryModel>optionalCategory = categoryRepository.findById(id);
+		if(!optionalCategory.isPresent()) {
+      return ResponseBuilder.getFailResponse(HttpStatus.NOT_FOUND, String.format("Requested %s could not be found", rootForCategory));
+		}
+		try {
+			CategoryModel categoryModel = optionalCategory.get();
+			modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
+			modelMapper.map(categoryDto, categoryModel);
+			categoryModel = categoryRepository.save(categoryModel);
+			if(categoryModel != null) {
+				 return ResponseBuilder.getSuccessResponse(HttpStatus.OK, null, String.format("%s updated successfully", rootForCategory));
+			}				
+			return ResponseBuilder.getFailResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Internal error occurred");
+		}catch(NullPointerException e) {
+        return ResponseBuilder.getFailResponse(HttpStatus.BAD_REQUEST, e.getMessage());
+		}catch (Exception e) {
+          return ResponseBuilder.getFailResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+    }
+		
 	}
+
+
 
 	@Override
 	public Response delete(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		Optional<CategoryModel> optionalCategory = categoryRepository.findById(id);
+		if(!optionalCategory.isPresent()) {
+			return ResponseBuilder.getFailResponse(HttpStatus.NOT_FOUND, String.format("Requested %s could not be found", rootForCategory));	
+		}
+		try {
+			CategoryModel categoryModel =optionalCategory.get();
+			categoryModel.setActive(false);
+			categoryModel =categoryRepository.save(categoryModel);
+			if (categoryModel != null) {
+              return ResponseBuilder.getSuccessResponse(HttpStatus.OK, null, String.format("%s deleted successfully", rootForCategory));
+         }
+			return ResponseBuilder.getFailResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Internal error occurred");
+			
+		}catch(ResourceNotFoundException e) {
+			return ResponseBuilder.getFailResponse(HttpStatus.NOT_FOUND, String.format("internal server error!"));
+		}
+		catch(NullPointerException e) {
+			return ResponseBuilder.getFailResponse(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+		catch(Exception e) {
+			return ResponseBuilder.getFailResponse(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
+		}
+		
 	}
+
 
 	@Override
 	public Response deleteAll() {
 		// TODO Auto-generated method stub
-		return null;
+		categoryRepository.deleteAll(false);
+		 return ResponseBuilder.getSuccessResponse(HttpStatus.OK, null, String.format("%s deleted successfully", rootForCategory));
 	}
 
 }
