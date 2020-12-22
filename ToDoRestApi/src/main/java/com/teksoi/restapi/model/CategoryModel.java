@@ -19,5 +19,5 @@ public class CategoryModel extends BaseModel {
 	private String categoryName;
 	private String categoryType;
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<Product>products = new ArrayList<>();
+	private List<Product> products;
 }

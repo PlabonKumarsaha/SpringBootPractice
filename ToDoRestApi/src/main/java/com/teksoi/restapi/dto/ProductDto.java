@@ -14,5 +14,5 @@ public class ProductDto {
 	private int numOfProduct;
 	private float productRating;
 	private double procudtPrice;
-	private List<CategoryModel>categoryModels = new ArrayList<>();
+	private CategoryModel categoryModel;
 }

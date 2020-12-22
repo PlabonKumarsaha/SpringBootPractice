@@ -29,4 +29,13 @@ public final class URIConstants {
 		
 	}
 
+	public static class ShopURL{
+		public static final String ROOT = API+VERSION;
+		public static final String GETALL = "/shops";
+		public static final String CREATE = "/add_shop";
+		public static final String UPDATE = "/update_shop/{id}";
+		public static final String DELETEBYID = "/delete_shop/{id}";
+		public static final String DELETE = "/delete_shop";
+		
+	}
 }

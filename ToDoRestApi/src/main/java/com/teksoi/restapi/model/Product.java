@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+
 import lombok.Data;
 
 @Entity
@@ -20,9 +21,13 @@ public class Product extends BaseModel{
 	private int numOfProduct;
 	private float productRating;
 	private double procudtPrice;
-	@ManyToOne(fetch = FetchType.LAZY,optional = false)
-	@JoinColumn(name = "category_id", nullable = false)
-	CategoryModel categoryModel;
+//	@ManyToOne(fetch = FetchType.LAZY,optional = false)
+//	@JoinColumn(name = "category_id", nullable = false)
+//	CategoryModel categoryModel;
+	
+	@ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+	private CategoryModel categoryModel;
 	
 	
 

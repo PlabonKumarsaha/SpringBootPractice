@@ -52,7 +52,7 @@ public class ProductController {
 		return response;
 	}
 	
-	@PutMapping(ProductURL.UPDATE)
+	@PutMapping(ProductURL.UPDATE) ///update_product/{id}"
 	@ResponseBody
 	public Response update(@PathVariable("id")Long id, @RequestBody ProductDto productDto,HttpServletResponse httpServletResponse, HttpServletRequest request){
 		 Response response =  productService.update(id, productDto);
