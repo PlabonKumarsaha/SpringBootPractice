@@ -10,7 +10,7 @@ public interface ShopService {
 	Response getAll();
 	Response updateShop(Long id);
 	Response updateShop(Long id, ShopDto shopdto);
-	Response deletetShop(int id);
+	Response deletetShop(Long id);
 	Response deleteAll();
 	
 	

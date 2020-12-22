@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -55,6 +56,17 @@ public class ShopController {
 		httpServletResponse.setStatus(response.getStatusCode());
 		return response;
 	}
+	
+	// delete 
+	@DeleteMapping(ShopURL.DELETEBYID)
+	@ResponseBody
+	Response delete(@PathVariable("id")Long id, @RequestBody ShopDto shopDto, HttpServletResponse httpServletResponse,  HttpServletRequest request) {
+	
+		Response response = shopservice.deletetShop(id);
+		httpServletResponse.setStatus(response.getStatusCode());
+		return response;
+	}
+	
 	
 	
 	
