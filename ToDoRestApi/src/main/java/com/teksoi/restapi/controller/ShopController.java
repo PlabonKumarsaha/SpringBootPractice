@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +45,14 @@ public class ShopController {
 		
 		Response response = shopservice.getAll();
 		response.setStatus(response.getStatus());
+		return response;
+	}
+	//update 
+	@PostMapping(ShopURL.UPDATE)
+	@ResponseBody
+	Response update(@PathVariable("id")Long id, @RequestBody ShopDto shopDto, HttpServletResponse httpServletResponse,  HttpServletRequest request) {
+		Response response = shopservice.updateShop(id);
+		httpServletResponse.setStatus(response.getStatusCode());
 		return response;
 	}
 	
