@@ -1,9 +1,14 @@
 package com.teksoi.restapi.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
@@ -13,7 +18,6 @@ public class CategoryModel extends BaseModel {
 
 	private String categoryName;
 	private String categoryType;
-	// @ManyToOne(fetch = FetchType.LAZY, optional = false)
-	 //@JoinColumn(name = "category_id", nullable = false)
-	//private Product product;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Product>products = new ArrayList<>();
 }

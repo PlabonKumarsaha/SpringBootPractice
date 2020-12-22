@@ -35,7 +35,7 @@ public class ProductController {
 		this.productService = productService;
 	}
 	
-	@PostMapping(ProductURL.CREATE) ///products
+	@PostMapping(ProductURL.CREATE) ///add_product
 	@ResponseBody
 	public Response create(@RequestBody ProductDto productDto ,  HttpServletResponse httpServletResponse, HttpServletRequest request) {
 		
@@ -43,7 +43,7 @@ public class ProductController {
 		httpServletResponse.setStatus(response.getStatusCode());
 		return response;
 	}
-	@GetMapping(ProductURL.GETALL)
+	@GetMapping(ProductURL.GETALL) // http://localhost:8080/api/products
 	@ResponseBody
 	public Response getAll(HttpServletResponse httpservletRespose) {
 		
