@@ -2,7 +2,10 @@ package com.teksoi.restapi.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +31,9 @@ import com.teksoi.restapi.utils.URIConstants.Category;
 @RequestMapping(URIConstants.API)
 public class CategoryController {
 	
+	//adding a logger to the class
+	Logger logger = (Logger) LoggerFactory.getLogger(CategoryController.class);
+	
 	private final CategoryService categoryService;
 	
 	@Autowired
@@ -38,8 +44,9 @@ public class CategoryController {
 	
 	@PostMapping(Category.CREATE)
 	@ResponseBody
-	public Response create(@RequestBody CategoryDto categoryDto, HttpServletResponse httpServletResponse, HttpServletRequest request) {
+	public Response create(@Valid @RequestBody CategoryDto categoryDto, HttpServletResponse httpServletResponse, HttpServletRequest request) {
 	
+		logger.trace("cstrgoty crested!");
 		Response response = categoryService.create(categoryDto);
 		httpServletResponse.setStatus(response.getStatusCode());
 		return response;
@@ -65,7 +72,7 @@ public class CategoryController {
 	 //"/update/{id}"
 	 @PutMapping(Category.UPDATE)
 	 @ResponseBody
-	public Response update(@PathVariable("id")Long id, @RequestBody CategoryDto categoryDto,HttpServletResponse httpServletResponse, HttpServletRequest request) {
+	public Response update(@PathVariable("id")Long id, @Valid @RequestBody CategoryDto categoryDto,HttpServletResponse httpServletResponse, HttpServletRequest request) {
 	    Response response =  categoryService.update(id, categoryDto);
 		httpServletResponse.setStatus(response.getStatusCode());
 		return response;

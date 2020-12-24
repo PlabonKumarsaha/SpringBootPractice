@@ -2,6 +2,7 @@ package com.teksoi.restapi.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -37,7 +38,7 @@ public class ProductController {
 	
 	@PostMapping(ProductURL.CREATE) ///add_product
 	@ResponseBody
-	public Response create(@RequestBody ProductDto productDto ,  HttpServletResponse httpServletResponse, HttpServletRequest request) {
+	public Response create(@Valid @RequestBody ProductDto productDto ,  HttpServletResponse httpServletResponse, HttpServletRequest request) {
 		
 		Response response = productService.create(productDto);
 		httpServletResponse.setStatus(response.getStatusCode());
@@ -54,7 +55,7 @@ public class ProductController {
 	
 	@PutMapping(ProductURL.UPDATE) ///update_product/{id}"
 	@ResponseBody
-	public Response update(@PathVariable("id")Long id, @RequestBody ProductDto productDto,HttpServletResponse httpServletResponse, HttpServletRequest request){
+	public Response update(@PathVariable("id")Long id, @Valid @RequestBody ProductDto productDto,HttpServletResponse httpServletResponse, HttpServletRequest request){
 		 Response response =  productService.update(id, productDto);
 		 httpServletResponse.setStatus(response.getStatusCode());
 		 return response;

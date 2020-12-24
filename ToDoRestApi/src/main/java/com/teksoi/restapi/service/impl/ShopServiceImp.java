@@ -29,7 +29,7 @@ public class ShopServiceImp implements ShopService{
 	}
 
 	@Override
-	public Response deletetShop(int id) {
+	public Response deletetShop(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
