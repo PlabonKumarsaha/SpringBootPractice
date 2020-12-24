@@ -4,7 +4,6 @@ import com.teksoi.restapi.dto.Response;
 import com.teksoi.restapi.dto.ToDoDto;
 
 public interface ToDoService {
-	
     Response create(ToDoDto toDoDto);
 
     Response getAll();

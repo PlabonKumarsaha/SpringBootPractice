@@ -33,8 +33,8 @@ public class ToDoServiceImpl implements ToDoService {
 
     @Override
     public Response create(ToDoDto toDoDto) {
-        ToDo toDo = modelMapper.map(toDoDto, ToDo.class); //why this is stored in obj class? and check line 50
-        toDo.setActive(true); // base class
+        ToDo toDo = modelMapper.map(toDoDto, ToDo.class);
+        toDo.setActive(true);
         toDo = toDoRepository.save(toDo);
         if (toDo != null) {
             return ResponseBuilder.getSuccessResponse(HttpStatus.CREATED, null, String.format("Created successfully", root));
@@ -47,9 +47,8 @@ public class ToDoServiceImpl implements ToDoService {
         List<ToDo> toDoList = toDoRepository.findAllByActiveTrue();
         List<ToDoDto> responseDtos = new ArrayList<>();
         toDoList.forEach(course -> {
-            ToDoDto toDoDto = modelMapper.map(course, ToDoDto.class); // why here dto is used for model mapping
+            ToDoDto toDoDto = modelMapper.map(course, ToDoDto.class);
             responseDtos.add(toDoDto);
-         
         });
 
         return ResponseBuilder.getSuccessResponse(HttpStatus.OK, responseDtos, responseDtos.size(), String.format("%s list", root));
