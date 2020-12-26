@@ -24,6 +24,5 @@ public class CategoryModel extends BaseModel {
 	@NotNull
 	@Size(min = 2,max =50, message = "category name can't be empty")
 	private String categoryType;
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Product> products;
+	
 }

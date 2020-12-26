@@ -7,6 +7,9 @@ import java.util.Optional;
 import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -123,5 +126,40 @@ public class CategoryServiceImpl implements CategoryService {
 		categoryRepository.deleteAll(false);
 		 return ResponseBuilder.getSuccessResponse(HttpStatus.OK, null, String.format("%s deleted successfully", rootForCategory));
 	}
+	
+	@Override
+	public Page<CategoryModel> findPaginated(Pageable pageRequest) {
+		// TODO Auto-generated method stub
+		Page<CategoryModel>allCategories=categoryRepository.findAll(pageRequest);
+		return allCategories;
+	}
+	
+//	@Override
+//	public Page<CategoryDto> findPaginated(Pageable pageRequest) {
+//		
+//		Page<CategoryModel>allCategories=categoryRepository.findAll(pageRequest);
+//		List<CategoryDto>allCategoryDto = new ArrayList<>();
+//		allCategories.forEach(catagory->{
+//            CategoryDto catagoryDto = modelMapper.map(catagory,CategoryDto.class);
+//            allCategoryDto.add(catagoryDto);		
+//		});
+//		
+//		return allCategoryDto;
+//	}
+	
+//	@Override
+//	public Page<CategoryDto> findPaginated(Pageable pageRequest) {
+//		
+//		Page<CategoryModel>allCategories=categoryRepository.findAll(pageRequest);
+//		List<CategoryDto>allCategoryDto = new ArrayList<>();
+//		allCategories.forEach(catagory->{
+//            CategoryDto catagoryDto = modelMapper.map(catagory,CategoryDto.class);
+//            allCategoryDto.add(catagoryDto);		
+//		});
+//		
+//		return allCategoryDto;
+//	}
+	
+
 
 }

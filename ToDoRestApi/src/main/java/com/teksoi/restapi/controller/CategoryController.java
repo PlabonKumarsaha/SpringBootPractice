@@ -1,5 +1,7 @@
 package com.teksoi.restapi.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -7,6 +9,11 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.teksoi.restapi.dto.CategoryDto;
 import com.teksoi.restapi.dto.Response;
 import com.teksoi.restapi.dto.ToDoDto;
+import com.teksoi.restapi.model.CategoryModel;
 import com.teksoi.restapi.service.CategoryService;
 import com.teksoi.restapi.utils.URIConstants;
 import com.teksoi.restapi.utils.URIConstants.Category;
@@ -96,6 +104,42 @@ public class CategoryController {
 	        httpServletResponse.setStatus(response.getStatusCode());
 	        return response;
 	    }
+	    
+//	    @GetMapping(Category.PAGENO)
+//	    public String findPaginated(@PathVariable("pageNo")int pageNo, Model model) {
+//	    	
+//	    	int pageSize = 5; //each page will have 5 data
+//	    	Page<CategoryModel>page = categoryService.findPaginated(pageNo, pageSize);
+//	    	List<CategoryModel>listCategories = page.getContent();
+//	    	
+//			return null;	
+//	    }
+//	    
+	    
+	    //show the page attribute as well
+	    @GetMapping(Category.PAGENO)
+	    public Page<CategoryModel>getCategoryDetails(@PageableDefault(page=0,size=3)Pageable pageRequest) {
+	    	
+	    	Page<CategoryModel>categoryPages = categoryService.findPaginated(pageRequest);
+	    	
+	    	List<CategoryModel>categoryResult =categoryPages.getContent();
+	    	Page<CategoryModel>categoryList = new PageImpl(categoryResult,pageRequest,categoryPages.getTotalElements());
+	    	
+			return categoryList;	
+	    }
+	    
+	    
+	    // This is perfectly working without showing page no.Page attribute not shown
+//	    @GetMapping(Category.PAGENO)
+//	    public List<CategoryModel>getCategoryDetails(@PageableDefault(page=0,size=3)Pageable pageRequest) {
+//	    	
+//	    	Page<CategoryModel>categoryPages = categoryService.findPaginated(pageRequest);
+//	    	
+//	    	List<CategoryModel>categoryResult =categoryPages.getContent();
+//	    	
+//			return categoryResult;	
+//	    }
+//	    
 	
 	}
 	

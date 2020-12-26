@@ -16,6 +16,8 @@ public final class URIConstants {
 		public static final String UPDATE = "/update/{id}";
 		public static final String DELETEBYID = "/delete/{id}";
 		public static final String DELETE = "/delete";
+		public static final String PAGENO = "/page";
+		
 		
 	}
 	

@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -119,6 +120,13 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		productRepository.deleteAll(false);
 		 return ResponseBuilder.getSuccessResponse(HttpStatus.OK, null, String.format("%s deleted successfully", rootForProduct));
+	}
+	//pagination work
+
+	@Override
+	public Page<ProductDto> findPaginated(int pageNo, int PageSize) {
+		// TODO Auto-generated method stub
+		return null;
 	}
     
 }
