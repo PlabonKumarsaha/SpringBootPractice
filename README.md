@@ -18,7 +18,7 @@
 @Autowired
     (private/public)FortuneSerice fortuneSerice; // works with java reflection technologies
     
-* Spring config with annotation (FieldCOnfig + Qualifier) -https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/SpringConfigWithAnnotation_Field_Ijection_qualifer
+* Spring config with annotation (FieldConfig + Qualifier) -https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/SpringConfigWithAnnotation_Field_Ijection_qualifer
 
 * Spirng qualifier - Used when multiple classes implmenet the same abstract class. https://www.tutorialspoint.com/spring/spring_qualifier_annotation.htm
 
