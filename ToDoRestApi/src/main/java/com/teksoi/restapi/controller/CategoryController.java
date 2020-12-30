@@ -105,18 +105,23 @@ public class CategoryController {
 	        return response;
 	    }
 	    
+	  
+	    
+	    //using dto
 //	    @GetMapping(Category.PAGENO)
-//	    public String findPaginated(@PathVariable("pageNo")int pageNo, Model model) {
+//	    public Page<CategoryDto> getCategoryDetails(@PageableDefault(page=0,size=3)Pageable pageRequest) {
 //	    	
-//	    	int pageSize = 5; //each page will have 5 data
-//	    	Page<CategoryModel>page = categoryService.findPaginated(pageNo, pageSize);
-//	    	List<CategoryModel>listCategories = page.getContent();
+//	    	Page<CategoryDto>categoryPages = categoryService.findPaginated(pageRequest);
 //	    	
-//			return null;	
+//	    	List<CategoryDto>categoryResult =categoryPages.getContent();
+//	    	Page<CategoryDto>categoryList = new PageImpl(categoryResult,pageRequest,categoryPages.getTotalElements());
+//	    	
+//			return categoryList;	
 //	    }
 //	    
 	    
-	    //show the page attribute as well
+	    
+	    //show the page attribute as well..This part works
 	    @GetMapping(Category.PAGENO)
 	    public Page<CategoryModel>getCategoryDetails(@PageableDefault(page=0,size=3)Pageable pageRequest) {
 	    	

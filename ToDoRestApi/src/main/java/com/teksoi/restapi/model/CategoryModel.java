@@ -17,6 +17,7 @@ import lombok.Data;
 @Entity
 @Data
 public class CategoryModel extends BaseModel {
+	
 
 	@NotNull
 	@Size(min = 2,max =50, message = "category name can't be empty")
@@ -24,5 +25,9 @@ public class CategoryModel extends BaseModel {
 	@NotNull
 	@Size(min = 2,max =50, message = "category name can't be empty")
 	private String categoryType;
+//	public CategoryModel(String categoryName,String categoryType ){
+//		this.categoryName =categoryName;
+//		this.categoryType = categoryType;
+//	}
 	
 }

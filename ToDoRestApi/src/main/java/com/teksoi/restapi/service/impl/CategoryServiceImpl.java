@@ -127,25 +127,31 @@ public class CategoryServiceImpl implements CategoryService {
 		 return ResponseBuilder.getSuccessResponse(HttpStatus.OK, null, String.format("%s deleted successfully", rootForCategory));
 	}
 	
+	//this works..just for model
 	@Override
-	public Page<CategoryModel> findPaginated(Pageable pageRequest) {
+public Page<CategoryModel> findPaginated(Pageable pageRequest) {
 		// TODO Auto-generated method stub
 		Page<CategoryModel>allCategories=categoryRepository.findAll(pageRequest);
 		return allCategories;
 	}
 	
-//	@Override
-//	public Page<CategoryDto> findPaginated(Pageable pageRequest) {
-//		
-//		Page<CategoryModel>allCategories=categoryRepository.findAll(pageRequest);
-//		List<CategoryDto>allCategoryDto = new ArrayList<>();
-//		allCategories.forEach(catagory->{
-//            CategoryDto catagoryDto = modelMapper.map(catagory,CategoryDto.class);
-//            allCategoryDto.add(catagoryDto);		
-//		});
-//		
-//		return allCategoryDto;
-//	}
+	
+	
+	//this is with dto
+/*	@Override
+	public Page<CategoryDto> findPaginated(Pageable pageRequest) {
+		
+		Page<CategoryModel>allCategories=categoryRepository.findAll(pageRequest);
+		Page<CategoryDto>allCategoryDto= (Page<CategoryDto>) new ArrayList<CategoryDto>();
+		allCategories.forEach(catagory->{
+            CategoryDto catagoryDto = modelMapper.map(catagory,CategoryDto.class);
+            ((List<CategoryDto>) allCategoryDto).add(catagoryDto);
+          //  allCategoryDto.
+		});
+		
+		return allCategoryDto;
+	} */
+	
 	
 //	@Override
 //	public Page<CategoryDto> findPaginated(Pageable pageRequest) {
