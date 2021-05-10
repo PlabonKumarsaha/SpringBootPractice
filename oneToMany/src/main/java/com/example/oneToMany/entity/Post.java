@@ -18,7 +18,6 @@ public class Post {
     @OneToMany( cascade = CascadeType.ALL)
     @JoinColumn(name = "post_comment_fk",referencedColumnName = "id", nullable = false)
     List<Comment> comments = new ArrayList<>();
-
     public Post(){
 
     }
