@@ -23,4 +23,5 @@
 * Spirng qualifier - Used when multiple classes implmenet the same abstract class. https://www.tutorialspoint.com/spring/spring_qualifier_annotation.htm
 
 * Controller - https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/Controller_SPRINGMVC : How to add JSP and add action in JSP
+* @JsonManagedReference(aprent), @JsonBackReference(child)   for bidirectional one to one : https://www.youtube.com/watch?v=Tvvt9coRlF4&list=PL0zysOflRCelmjxj-g4jLr3WKraSU_e8q&index=25&ab_channel=LearnCodeWithDurgesh
 
