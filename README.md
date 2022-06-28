@@ -33,3 +33,4 @@
 - Rabbit_mq -> https://www.youtube.com/watch?v=o4qCdBR4gUM&t=857s
 -redis -> https://www.youtube.com/watch?v=oRGqCz8OLcM
 - twillio -> https://www.youtube.com/watch?v=lJxjTLU9pGs
+- spring batch - https://www.youtube.com/watch?v=hr2XTbKSdAQ&list=PLVz2XdJiJQxyC2LMLgDjFGJBX9TJAM4A2
