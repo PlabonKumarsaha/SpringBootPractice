@@ -25,3 +25,11 @@
 * Controller - https://github.com/PlabonKumarsaha/SpringBootPractice-/tree/master/Controller_SPRINGMVC : How to add JSP and add action in JSP
 * @JsonManagedReference(aprent), @JsonBackReference(child)   for bidirectional one to one : https://www.youtube.com/watch?v=Tvvt9coRlF4&list=PL0zysOflRCelmjxj-g4jLr3WKraSU_e8q&index=25&ab_channel=LearnCodeWithDurgesh
 
+## To add 
+- Keycloke - > https://www.youtube.com/watch?v=La082JsJoH4&t=611s
+- Github actions -> https://www.youtube.com/watch?v=NppkHKvnrqc&t=1126s
+- Sping data jpa -> https://www.youtube.com/watch?v=MHxoUbyfblo
+- fullstack deploy -> https://www.youtube.com/watch?v=q25jgAZTTsU
+- Rabbit_mq -> https://www.youtube.com/watch?v=o4qCdBR4gUM&t=857s
+-redis -> https://www.youtube.com/watch?v=oRGqCz8OLcM
+- twillio -> https://www.youtube.com/watch?v=lJxjTLU9pGs
