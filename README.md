@@ -34,3 +34,4 @@
 -redis -> https://www.youtube.com/watch?v=oRGqCz8OLcM
 - twillio -> https://www.youtube.com/watch?v=lJxjTLU9pGs
 - spring batch - https://www.youtube.com/watch?v=hr2XTbKSdAQ&list=PLVz2XdJiJQxyC2LMLgDjFGJBX9TJAM4A2
+- secheduer : https://www.youtube.com/watch?v=uxV-3947fiM
