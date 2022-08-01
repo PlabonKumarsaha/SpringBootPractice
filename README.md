@@ -37,3 +37,5 @@
 - secheduer : https://www.youtube.com/watch?v=uxV-3947fiM
 -audit : https://www.youtube.com/watch?v=Pc7Une_5rMs
 -audit : https://www.youtube.com/watch?v=W1Rtn28lHU8
+- Spring Expression Language (SpEL)
+https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html
